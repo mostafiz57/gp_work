@@ -1,0 +1,160 @@
+<div class="container">
+   
+   <!-- start: User Table -->
+
+   <div class="row">
+    <div style="height:58px">
+        
+    </div>
+       
+   </div>
+
+<div class="heading-bar" style="text-align:center">
+    <h3>Tell us about your business</h3>
+    <span class="h-line"></span>
+</div>
+<div class="row">
+<div class="col-md-12">
+<form name="businessForm" novalidate>
+    <div class="col-sm-12 margin-top10">
+        <div class="control-group col-sm-6" ng-class="{true: 'has-error'}[submitted && businessForm.first_name.$invalid]">
+            <label class="col-sm-4">First Name </label>
+            <div class="col-sm-7">
+                <input type="text" name="first_name" class="form-control" ng-model="registration.first_name" required>
+                <p class="help-block" ng-show="submitted && businessForm.first_name.$error.required">Your first name is required.</p>
+            </div>
+        </div>
+
+        <div class="control-group col-sm-6" ng-class="{true: 'has-error'}[submitted && businessForm.last_name.$invalid]">
+            <label class="col-sm-4">Last Name </label>
+            <div class="col-sm-7">
+                <input type="text" id="last_name" name="last_name" class="form-control" ng-model="registration.last_name" required>
+                <p class="help-block" ng-show="submitted && businessForm.last_name.$error.required">Your last name is required.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 margin-top10">
+        <div class="control-group col-sm-6" ng-class="{true: 'has-error'}[submitted && businessForm.business_email.$invalid]">
+            <label class="col-sm-4">Email</label>
+            <div class="col-sm-7">
+                <input type="email" name="business_email" class="form-control" ng-model="registration.business_email" required>
+                <p class="help-block" ng-show="submitted && businessForm.business_email.$error.required">Your email is required.</p>
+                 <p class="help-block" ng-show="businessForm.business_email.$invalid && !business_email.business_email.$pristine && submitted">Enter valid email.</p>
+            </div>
+        </div>
+
+        <div class="control-group col-sm-6" ng-class="{true: 'has-error'}[submitted && businessForm.confirm_email.$invalid]">
+            <label class="col-sm-4">Confirm Email</label>
+            <div class="col-sm-7">
+                <input type="email"  name="confirm_email" class="form-control" ng-model="registration.confirm_email" 
+                ng-match="business_email" required match="registration.business_email">
+                <p class="help-block" ng-show="submitted && businessForm.confirm_email.$error.required">Confirm email is required.</p>
+                 <p class="help-block" ng-show="businessForm.confirm_email.$invalid && !confirm_email.$pristine && submitted">Enter valid email.</p>
+                  <span class="help-block has-error" style="color:#a94442" ng-show="businessForm.confirm_email.$error.mismatch">Email and Confirm Email must match.</span></div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 margin-top10">
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && businessForm.business_name.$invalid]">
+                <label class="col-sm-2">Business Name</label>
+                <div class="col-sm-6">
+                     <input type="text"  name="business_name" class="form-control" ng-model="registration.business_name" required>
+                      <p class="help-block" ng-show="submitted && businessForm.business_name.$error.required">Business name is required.</p>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 margin-top10">
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && businessForm.business_address1.$invalid]">
+                <label class="col-sm-2"> Business Address Line1</label>
+                <div class="col-sm-6">
+                     <input type="text"  name="business_address1" class="form-control" ng-model="registration.business_address1" required>
+                      <p class="help-block" ng-show="submitted && businessForm.business_address1.$error.required">Business address line1 is required.</p>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 margin-top10">
+            <div class="form-group">
+                <label class="col-sm-2"> Business Address Line2</label>
+                <div class="col-sm-6">
+                     <input type="text"  name="business_address2" class="form-control" ng-model="registration.business_address2" >
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 margin-top10">
+        <div class="control-group col-sm-6" ng-class="{true: 'has-error'}[submitted && businessForm.city.$invalid]">
+            <label class="col-sm-4">City </label>
+            <div class="col-sm-7">
+                <input type="text" name="city" class="form-control" ng-model="registration.city" required>
+                <p class="help-block" ng-show="submitted && businessForm.city.$error.required">City is required.</p>
+            </div>
+        </div>
+
+        <div class="control-group col-sm-6" ng-class="{true: 'has-error'}[submitted && businessForm.state.$invalid]">
+            <label class="col-sm-4">State</label>
+            <div class="col-sm-7">
+               <select class="form-control search-select" name="state" ng-model="registration.state"  required>    
+                        <option value="">-- Select State --</option>
+                        <option ng-repeat="stz in State" value="{{stz.id}}"> {{stz.val}}</option>
+                    </select>
+                <span class="help-block" ng-show="businessForm.state.$error.required">State is required</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 margin-top10">
+        <div class="control-group col-sm-6" ng-class="{true: 'has-error'}[submitted && businessForm.zip_code.$invalid]">
+            <label class="col-sm-4">Zip Code </label>
+            <div class="col-sm-7">
+                <input type="text" name="zip_code" class="form-control" ng-model="registration.zip_code" required>
+                <p class="help-block" ng-show="submitted && businessForm.zip_code.$error.required">Zip Code is required.</p>
+            </div>
+        </div>
+
+        <div class="control-group col-sm-6" ng-class="{true: 'has-error'}[submitted && businessForm.phone.$invalid]">
+            <label class="col-sm-4">Phone</label>
+            <div class="col-sm-7">
+                <input type="text" id="phone" name="phone" class="form-control" ng-model="registration.phone" required>
+                <p class="help-block" ng-show="submitted && businessForm.phone.$error.required">Phone is required.</p>
+            </div>
+        </div>
+    </div>
+
+     <div class="col-sm-12 margin-top10">
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && businessForm.time_zone.$invalid]">
+                <label class="col-sm-2"> Time zone</label>
+                <div class="col-sm-6">
+                    <select class="form-control search-select" name="time_zone" ng-model="registration
+                    .time_zone"  required>    
+                        <option value="">-- Select Time zone --</option>
+                        <option ng-repeat="stz in StandardTimeZone" value="{{stz.id}}"> {{stz.val}}</option>
+                    </select>
+                    <span class="help-block" ng-show="businessForm.time_zone.$error.required">Time zone is required</span>
+
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+
+           
+    </div>
+
+    <div class="col-sm-12" style="margin-top:20px">
+         <label class="col-sm-3 control-label"></label>
+        <div class="form-group" class="col-sm-5">
+         <button type="submit" class="btn btn-primary col-sm-2"   data-ng-click="submitted=true;saveORUpdateRegistrationInfo()">{{btnText}}</button>
+        </div>
+
+    </div>
+</form>
+
+</div>
+</div>
+</div>
+
