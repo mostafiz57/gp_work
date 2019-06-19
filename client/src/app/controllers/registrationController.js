@@ -35,7 +35,7 @@ app.controller('groupWorkCtrl' ,[
 		 	{id : 'as' , val :'Alaska' },
 		 	{id :'ar' , val : 'Arizona' } ,
 		 	{id : 'ca' , val : 'California'} ,
-		 	{id :'ny' , val :  'New York' }
+		 	
 	 	];
 
 		//Setting master data variable
